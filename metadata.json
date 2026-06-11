@@ -1,0 +1,6 @@
+{
+  "name": "PV Exports",
+  "description": "Showcase of premium hotel and bath linens with global supply and export capabilities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
