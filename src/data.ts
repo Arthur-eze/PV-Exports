@@ -5,49 +5,92 @@
 
 import { GalleryItem, ServiceItem, Testimonial, FabricItem } from './types';
 
+// Import images statically so Vite compiles and bundles them correctly for production
+import imgHero from './assets/images/hero_linens_1781010338929.png';
+import imgBath from './assets/images/bath_linens_1781010353409.png';
+import imgWeave from './assets/images/luxury_weave_1781010371279.png';
+import imgStack from './assets/images/linen_stack_1781010387371.png';
+import imgBedsheet from './assets/images/luxurious_bedsheet_1781012707670.png';
+import imgBathrobe from './assets/images/g4_velour_bathrobe_1781012959397.png';
+import imgMonogramBathrobe from './assets/images/g9_monogram_bathrobe_1781155989299.png';
+import imgLuxuryTowels from './assets/images/luxury_towels_stack_1781013678802.png';
+import imgBathmat from './assets/images/g6_ribbed_bathmat_1781012977779.png';
+import imgTableLinens from './assets/images/g7_table_linens_1781012993713.png';
+import imgTestingLab from './assets/images/s8_testing_lab_1781013010800.png';
+import imgSourcingTable from './assets/images/s12_sourcing_table_1781013026704.png';
+import imgCurtainGoldenFloral from './assets/images/curtain_golden_floral_1781154077545.png';
+import imgCurtainCreamRose from './assets/images/curtain_cream_rose_1781154093699.png';
+import imgCurtainNavyDamask from './assets/images/curtain_navy_damask_1781154111657.png';
+import imgBedDustyRose from './assets/images/bed_dusty_rose_1781154133146.png';
+import imgBedWhiteSatin from './assets/images/bed_white_satin_1781154148390.png';
+import imgFabricFlaxLinen from './assets/images/fabric_flax_linen_1781156416691.png';
+import imgFabricCombedCotton from './assets/images/fabric_combed_cotton_1781156432525.png';
+import imgFabricJacquardWeave from './assets/images/fabric_jacquard_weave_1781156447858.png';
+import imgFabricRoyalVelvet from './assets/images/fabric_royal_velvet_1781156461784.png';
+import imgLuxuriousSuiteInterior from './assets/images/luxurious_suite_interior_1781163200646.png';
+import imgG1SatinStripeDuvet from './assets/images/g1_satin_stripe_duvet_1781163402013.png';
+import imgG4LuxuryTowels from './assets/images/g4_luxury_towels_1781163417909.png';
+import imgG2PastelTowels from './assets/images/g2_pastel_towels_stack_1781163628718.png';
+import imgS3EmbossedBedspread from './assets/images/s3_embossed_bedspread_1781163911058.png';
+import imgFabricCottonSlate from './assets/images/fabric_cotton_slate_1781165888776.png';
+import imgFabricPolyesterBlue from './assets/images/fabric_poly_navy_1781166039318.png';
+import imgFabricSilkPurple from './assets/images/fabric_silk_purple_1781165198833.png';
+import imgFabricWoolGrey from './assets/images/fabric_wool_vortex_1781166225243.png';
+import imgFabricLaceWhite from './assets/images/fabric_lace_vortex_1781166372845.png';
+import imgFabricJuteBrown from './assets/images/fabric_jute_brown_1781165239328.png';
+import imgFabricBambooSlate from './assets/images/fabric_bamboo_slate_1781165250992.png';
+import imgFabricBambooGreen from './assets/images/fabric_bamboo_green_1781167453033.png';
+import imgFabricVelvetNavy from './assets/images/fabric_velvet_navy_1781165513259.png';
+import imgLookbookCushionsPeachCream from './assets/images/lookbook_cushions_peach_cream_1781170802503.png';
+import imgLookbookPillowsBlushPaisley from './assets/images/lookbook_pillows_blush_paisley_1781170854271.png';
+import imgLookbookPillowsIndianPaisley from './assets/images/lookbook_pillows_indian_paisley_1781170874403.png';
+import imgLookbookCushionsPastelStripes from './assets/images/lookbook_cushions_pastel_stripes_1781170901423.png';
+import imgLookbookPillowEmbossedIvory from './assets/images/lookbook_pillow_embossed_ivory_1781170920831.png';
+import imgLookbookPillowsBohoTassels from './assets/images/lookbook_pillows_boho_tassels_1781170938552.png';
+
 // Let's use our high-quality generated assets and curated Unsplash CDN URLs that perfectly match the luxury linen theme
 export const generatedAssets = {
-  hero: '/src/assets/images/hero_linens_1781010338929.png',
-  bath: '/src/assets/images/bath_linens_1781010353409.png',
-  weave: '/src/assets/images/luxury_weave_1781010371279.png',
-  stack: '/src/assets/images/linen_stack_1781010387371.png',
-  bedsheet: '/src/assets/images/luxurious_bedsheet_1781012707670.png',
-  bathrobe: '/src/assets/images/g4_velour_bathrobe_1781012959397.png',
-  monogramBathrobe: '/src/assets/images/g9_monogram_bathrobe_1781155989299.png',
-  luxuryTowels: '/src/assets/images/luxury_towels_stack_1781013678802.png',
-  bathmat: '/src/assets/images/g6_ribbed_bathmat_1781012977779.png',
-  tableLinens: '/src/assets/images/g7_table_linens_1781012993713.png',
-  testingLab: '/src/assets/images/s8_testing_lab_1781013010800.png',
-  sourcingTable: '/src/assets/images/s12_sourcing_table_1781013026704.png',
-  curtainGoldenFloral: '/src/assets/images/curtain_golden_floral_1781154077545.png',
-  curtainCreamRose: '/src/assets/images/curtain_cream_rose_1781154093699.png',
-  curtainNavyDamask: '/src/assets/images/curtain_navy_damask_1781154111657.png',
-  bedDustyRose: '/src/assets/images/bed_dusty_rose_1781154133146.png',
-  bedWhiteSatin: '/src/assets/images/bed_white_satin_1781154148390.png',
-  fabricFlaxLinen: '/src/assets/images/fabric_flax_linen_1781156416691.png',
-  fabricCombedCotton: '/src/assets/images/fabric_combed_cotton_1781156432525.png',
-  fabricJacquardWeave: '/src/assets/images/fabric_jacquard_weave_1781156447858.png',
-  fabricRoyalVelvet: '/src/assets/images/fabric_royal_velvet_1781156461784.png',
-  luxuriousSuiteInterior: '/src/assets/images/luxurious_suite_interior_1781163200646.png',
-  g1SatinStripeDuvet: '/src/assets/images/g1_satin_stripe_duvet_1781163402013.png',
-  g4LuxuryTowels: '/src/assets/images/g4_luxury_towels_1781163417909.png',
-  g2PastelTowels: '/src/assets/images/g2_pastel_towels_stack_1781163628718.png',
-  s3EmbossedBedspread: '/src/assets/images/s3_embossed_bedspread_1781163911058.png',
-  fabricCottonSlate: '/src/assets/images/fabric_cotton_slate_1781165888776.png',
-  fabricPolyesterBlue: '/src/assets/images/fabric_poly_navy_1781166039318.png',
-  fabricSilkPurple: '/src/assets/images/fabric_silk_purple_1781165198833.png',
-  fabricWoolGrey: '/src/assets/images/fabric_wool_vortex_1781166225243.png',
-  fabricLaceWhite: '/src/assets/images/fabric_lace_vortex_1781166372845.png',
-  fabricJuteBrown: '/src/assets/images/fabric_jute_brown_1781165239328.png',
-  fabricBambooSlate: '/src/assets/images/fabric_bamboo_slate_1781165250992.png',
-  fabricBambooGreen: '/src/assets/images/fabric_bamboo_green_1781167453033.png',
-  fabricVelvetNavy: '/src/assets/images/fabric_velvet_navy_1781165513259.png',
-  lookbookCushionsPeachCream: '/src/assets/images/lookbook_cushions_peach_cream_1781170802503.png',
-  lookbookPillowsBlushPaisley: '/src/assets/images/lookbook_pillows_blush_paisley_1781170854271.png',
-  lookbookPillowsIndianPaisley: '/src/assets/images/lookbook_pillows_indian_paisley_1781170874403.png',
-  lookbookCushionsPastelStripes: '/src/assets/images/lookbook_cushions_pastel_stripes_1781170901423.png',
-  lookbookPillowEmbossedIvory: '/src/assets/images/lookbook_pillow_embossed_ivory_1781170920831.png',
-  lookbookPillowsBohoTassels: '/src/assets/images/lookbook_pillows_boho_tassels_1781170938552.png',
+  hero: imgHero,
+  bath: imgBath,
+  weave: imgWeave,
+  stack: imgStack,
+  bedsheet: imgBedsheet,
+  bathrobe: imgBathrobe,
+  monogramBathrobe: imgMonogramBathrobe,
+  luxuryTowels: imgLuxuryTowels,
+  bathmat: imgBathmat,
+  tableLinens: imgTableLinens,
+  testingLab: imgTestingLab,
+  sourcingTable: imgSourcingTable,
+  curtainGoldenFloral: imgCurtainGoldenFloral,
+  curtainCreamRose: imgCurtainCreamRose,
+  curtainNavyDamask: imgCurtainNavyDamask,
+  bedDustyRose: imgBedDustyRose,
+  bedWhiteSatin: imgBedWhiteSatin,
+  fabricFlaxLinen: imgFabricFlaxLinen,
+  fabricCombedCotton: imgFabricCombedCotton,
+  fabricJacquardWeave: imgFabricJacquardWeave,
+  fabricRoyalVelvet: imgFabricRoyalVelvet,
+  luxuriousSuiteInterior: imgLuxuriousSuiteInterior,
+  g1SatinStripeDuvet: imgG1SatinStripeDuvet,
+  g4LuxuryTowels: imgG4LuxuryTowels,
+  g2PastelTowels: imgG2PastelTowels,
+  s3EmbossedBedspread: imgS3EmbossedBedspread,
+  fabricCottonSlate: imgFabricCottonSlate,
+  fabricPolyesterBlue: imgFabricPolyesterBlue,
+  fabricSilkPurple: imgFabricSilkPurple,
+  fabricWoolGrey: imgFabricWoolGrey,
+  fabricLaceWhite: imgFabricLaceWhite,
+  fabricJuteBrown: imgFabricJuteBrown,
+  fabricBambooSlate: imgFabricBambooSlate,
+  fabricBambooGreen: imgFabricBambooGreen,
+  fabricVelvetNavy: imgFabricVelvetNavy,
+  lookbookCushionsPeachCream: imgLookbookCushionsPeachCream,
+  lookbookPillowsBlushPaisley: imgLookbookPillowsBlushPaisley,
+  lookbookPillowsIndianPaisley: imgLookbookPillowsIndianPaisley,
+  lookbookCushionsPastelStripes: imgLookbookCushionsPastelStripes,
+  lookbookPillowEmbossedIvory: imgLookbookPillowEmbossedIvory,
+  lookbookPillowsBohoTassels: imgLookbookPillowsBohoTassels,
 };
 
 export const galleryItems: GalleryItem[] = [
