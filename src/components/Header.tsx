@@ -89,15 +89,26 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
           </button>
         </nav>
  
-        {/* Mobile Navigation Trigger */}
-        <button
-          id="mobile-nav-toggle"
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-slate-800 hover:text-brand-medium p-1 focus:outline-none cursor-pointer"
-          aria-label="Toggle navigation menu"
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile Navigation Trigger & Mobile CTA */}
+        <div className="md:hidden flex items-center space-x-3">
+          <button
+            id="mobile-header-cta-top"
+            onClick={() => handleItemClick('contact')}
+            className="bg-brand-medium hover:bg-brand-light text-white font-bold py-2 px-3.5 rounded-none text-[8px] sm:text-[9px] tracking-[0.15em] uppercase transition-all duration-300 border border-brand-medium hover:border-brand-light active:scale-95 shadow-sm flex items-center gap-1.5 cursor-pointer"
+          >
+            <Mail className="w-2.5 h-2.5" />
+            Inquire Now
+          </button>
+          
+          <button
+            id="mobile-nav-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-slate-850 hover:text-brand-medium p-1 focus:outline-none cursor-pointer"
+            aria-label="Toggle navigation menu"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer (Overlay) */}
